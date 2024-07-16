@@ -4,6 +4,7 @@
   imports = [ 
     ./hardware-configuration.nix
     ./main-user.nix
+    ../../modules/nixos/nvidia.nix
   ];
 
   main-user.enable = true;
@@ -29,13 +30,6 @@
   # add flakes
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
-  # allow unfree for graphics libs
-  nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
-    "nvidia-x11"
-    "nvidia-settings"
-    "nvidia-persistenced"
-  ];
-
   networking = {
     hostName = "huoxing";
     wireless.enable = true;
@@ -47,7 +41,6 @@
   services = {
     # enable x11
     xserver = {
-      videoDrivers = ["nvidia"];
       enable = true;
       displayManager = {
         startx.enable = true;
@@ -80,15 +73,6 @@
       enable = true;
       packages = [ pkgs.dconf ];
     };
-  };
-
-  # nvidia settings
-  hardware.opengl.enable = true;
-  hardware.nvidia = {
-    modesetting.enable = true;
-    open = false;
-    nvidiaSettings = true;
-    package = config.boot.kernelPackages.nvidiaPackages.stable;
   };
 
   # fonts
