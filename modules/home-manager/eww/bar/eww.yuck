@@ -1,0 +1,78 @@
+(defvar eww "$HOME/.cargo/bin/eww -c $HOME/.config/eww/bar") ;; TODO: figure out where eww bar config is located on huoxing
+
+(defwidget workspacesdp []
+  (literal :content workspacedp))
+(deflisten workspacedp "bash scripts/workspace dp")
+(defwidget workspaceshdmi []
+  (literal :content workspacehdmi))
+(deflisten workspacehdmi "bash scripts/workspace hdmi")
+
+(defwidget volume []
+  (eventbox :onhover "${eww} update volume=true"
+            :onhoverlost "${eww} update volume=false"
+    (box    :orientation "v"
+            :space-evenly "false"
+            :spacing "2"
+      (revealer :transition "slideup"
+                :reveal volume
+                :duration "250ms"
+        (scale  :class "volbar"
+                :value current-volume
+                :orientation "v"
+                :flipped true
+                :tooltip "vol: ${current-volume}%"
+                :max 101
+                :min 0
+                :onchange "pamixer --set-volume {}"))
+    (button :onclick "pavucontrol &" :class "volume-icon" ""))))
+(defpoll current-volume :interval "1s" "pamixer --get-volume")
+(defvar volume false)
+
+(defwidget metric [label tooltip class]
+  (box  :orientation "v"
+        :class "${class}"
+        :space-evenly false
+        :halign "center"
+        :tooltip tooltip
+    (box "${label}")))
+
+(defwidget time []
+  (metric :label date-time
+          :tooltip date
+          :class "time"))
+(defpoll date-time :interval "1s" "echo \"$(date '+%H')\"; echo \"$(date '+%M')\"")
+(defpoll date :interval "1s" "date '+%Y-%m-%d'")
+
+(defwidget topdp []
+  (box  :orientation "v"
+        :space-evenly true
+        :valign "start"
+        (workspacedp)))
+
+(defwidget tophdmi []
+  (box  :orientation "v"
+        :space-evenly true
+        :valign "start"
+        (workspacehdmi)))
+
+(defwidget bottom []
+  (box  :orientation "v"
+        :space-evenly false
+  (volume)
+  (time)))
+
+(defwidget bardp
+  (box  :class "eww_bar"
+        :orientation "v"
+        :vexpand false
+        :hexpand false)
+  (topdp)
+  (end))
+
+(defwidget barhdmi
+  (box  :class "eww_bar"
+        :orientation "v"
+        :vexpand false
+        :hexpand false)
+  (tophdmi)
+  (end))
