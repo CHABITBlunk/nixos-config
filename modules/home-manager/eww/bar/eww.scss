@@ -1,0 +1,84 @@
+* {
+  all: unset;
+}
+
+$brightGrey: #949494;
+$brightBlue: #74b2ff;
+$brightCyan: #85dc85;
+$brightGreen: #36c692;
+$violet: #ae81ff;
+$brightMagenta: #ff5189;
+$brightWhite: #e4e4e4;
+$brightYellow: #c6c684;
+$grey: #323437;
+$blue: #80a0ff;
+$cyan: #79dac8;
+$green: #8cc85f;
+$magenta: #cf87e8;
+$red: #ff5454;
+$white: #c6c6c6;
+$yellow: #e3c78a;
+$black: #080808;
+$brightForeground: #e4e4e4;
+$foreground: #bdbdbd;
+
+.eww_bar {
+  background-color: $black;
+}
+
+.workspaces {
+  font-family: Iosevka Nerd Font;
+  color: $grey;
+}
+
+.workspaces button {
+  font-size: 11pt;
+  padding: 0 5px;
+}
+
+.workspaces button:hover {
+  background-color: $foreground;
+  color: $black;
+}
+
+.focused {
+  color: $black;
+  background-color: $violet;
+}
+
+.occupied {
+  color: $brightForeground;
+}
+
+.control {
+  font-family: Iosevka Nerd Font;
+  font-size: 1rem;
+  background-color: transparent;
+  border-radius: 5px;
+}
+
+.volume-icon {
+  color: $magenta;
+}
+
+.time {
+  color: $white;
+  font-family: Iosevka Nerd Font;
+  font-size: 0.85rem;
+  font-weight: bold;
+}
+
+scale trough {
+  background-color: $grey;
+  border-radius: 5px;
+  min-height: 100px;
+  min-width: 8px;
+}
+
+scale trough highlight {
+  border-radius: 5px;
+}
+
+.volbar trough highlight {
+  background-color: $magenta;
+}
