@@ -3,7 +3,6 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -17,11 +16,11 @@
     in {
       nixosConfigurations = {
         shuixing = nixpkgs.lib.nixosSystem {
-          specialArgs = {inherit inputs;};
+          specialArgs = { inherit inputs; };
           retraGroups = [ "wheel" "audio" ];
           modules = [
             ./hosts/shuixing/configuration.nix
-              inputs.home-manager.nixosModules.default
+            inputs.home-manager.nixosModules.default
           ];
         };
       };

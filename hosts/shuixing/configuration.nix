@@ -3,12 +3,16 @@
 {
   imports = [ 
     ./hardware-configuration.nix
-    ./main-user.nix
     ../../modules/nixos/nvidia.nix
+    inputs.home-manager.nixosModules.home-manager
   ];
 
-  main-user.enable = true;
-  main-user.userName = "xiaolong";
+  users.users.xiaolong = {
+      isNormalUser = true;j
+      initialPassword = "seven sixteen thirty-seven";
+      description = "main user";
+      shell = pkgs.zsh;
+  };
 
   # bootloader
   boot.loader = {
@@ -94,16 +98,8 @@
     git
     fzf
     gnumake
-    bottom
+    home-manager
   ];
-
-  # home manager
-  home-manager = {
-    extraSpecialArgs = { inherit inputs; };
-    users = {
-      "xiaolong" = import ./home.nix;
-    }
-  }
 
   # copy system config in case you do a boo-boo
   system.copySystemConfiguration = true;
