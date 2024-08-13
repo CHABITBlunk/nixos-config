@@ -1,4 +1,4 @@
-(defvar eww "$HOME/.cargo/bin/eww -c $HOME/.config/eww/bar") ;; TODO: figure out where eww bar config is located on huoxing
+(defvar eww "eww -c $HOME/.config/eww/bar") ;; TODO: figure out where eww bar config is located on huoxing
 
 (defwidget workspacesdp []
   (literal :content workspacedp))
@@ -76,3 +76,23 @@
         :hexpand false)
   (tophdmi)
   (end))
+
+(defwindow bardp
+  :geometry (geometry :height "95%"
+                      :width "40px"
+                      :anchor "left center")
+  :monitor "DP-0"
+  :wm-ignore false
+  :reserve (struts  :distance "40px"
+                    :side "left")
+  (bardp))
+
+(defwindow barhdmi
+  :geometry (geometry :height "95%"
+                      :width "40px"
+                      :anchor "left center")
+  :monitor "HDMI-0"
+  :wm-ignore false
+  :reserve (struts  :distance "40px"
+                    :side "left")
+  (barhdmi))
