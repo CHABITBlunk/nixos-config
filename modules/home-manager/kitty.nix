@@ -11,6 +11,8 @@
     enable_audio_bell no
     linux_display_server x11
     display_ligatures cursor
+    cursor_trail 1
+    cursor_trail_decay 0.1 0.25
     background            #080808
     foreground            #bdbdbd
     cursor                #9e9e9e

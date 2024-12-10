@@ -46,14 +46,8 @@
     # enable x11
     xserver = {
       enable = true;
-      displayManager = {
-        startx.enable = true;
-        defaultSession = "none+i3";
-      };
-      windowManager.i3 = {
-        enable = true;
-        package = pkgs.i3-gaps;
-      };
+      displayManager.startx.enable = true;
+      windowManager.bspwm.enable = true;
       xkb.layout = "us";
     };
 
@@ -79,27 +73,27 @@
     };
   };
 
-  # fonts
-  fonts.packages = with pkgs; [
-    noto-fonts
-    noto-fonts-cjk
-    noto-fonts-emoji
-    (nerdfonts.override { fonts = [ "Iosevka" "Ubuntu" ]; })
-  ];
-
   # system-wide packages (build tools, zsh, rust utils, editor)
   environment.systemPackages = with pkgs; [
-    neovim
-    wget
+    bat
     curl
     eza
-    bat
-    zsh
-    git
     fzf
+    git
     gnumake
-    home-manager
+    man
+    neovim
+    ripgrep
+    wget
+    zsh
   ];
+
+  home-manager = {
+    extraSpecialArgs = { inherit inputs; };
+    users = {
+      "xiaolong" = import ./home.nix;
+    }
+  };
 
   # copy system config in case you do a boo-boo
   system.copySystemConfiguration = true;
