@@ -34,7 +34,7 @@
   # add flakes
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
-  networking.hostName = "huoxing";
+  networking.hostName = "shuixing";
 
   # time zone
   time.timeZone = "America/Denver";

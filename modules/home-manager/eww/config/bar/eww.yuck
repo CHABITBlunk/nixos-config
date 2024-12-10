@@ -1,4 +1,4 @@
-(defvar eww "eww -c $HOME/.config/eww/bar") ;; TODO: figure out where eww bar config is located on huoxing
+(defvar eww "eww -c $HOME/.config/eww/bar") ;; TODO: figure out where eww bar config is located on shuixing
 
 (defwidget workspacesdp []
   (literal :content workspacedp))
