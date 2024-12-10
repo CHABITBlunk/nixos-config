@@ -8,7 +8,7 @@
   ];
 
   users.users.xiaolong = {
-      isNormalUser = true;j
+      isNormalUser = true;
       initialPassword = "seven sixteen thirty-seven";
       description = "main user";
       shell = pkgs.zsh;
@@ -74,11 +74,10 @@
     extraSpecialArgs = { inherit inputs; };
     users = {
       "xiaolong" = import ./home.nix;
-    }
+    };
   };
 
-  # copy system config in case you do a boo-boo
-  system.copySystemConfiguration = true;
+  programs.zsh.enable = true;
 
   # WARN: do not delete or change this line whatever you do
   system.stateVersion = "24.05";

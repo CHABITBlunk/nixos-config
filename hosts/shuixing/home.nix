@@ -5,5 +5,5 @@
     username = "xiaolong";
     homeDirectory = "/home/xiaolong";
     stateVersion = "24.05";
-  }
+  };
 }
