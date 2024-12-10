@@ -36,7 +36,6 @@
 
   networking = {
     hostName = "huoxing";
-    wireless.enable = true;
   };
 
   # time zone
@@ -72,21 +71,6 @@
       packages = [ pkgs.dconf ];
     };
   };
-
-  # system-wide packages (build tools, zsh, rust utils, editor)
-  environment.systemPackages = with pkgs; [
-    bat
-    curl
-    eza
-    fzf
-    git
-    gnumake
-    man
-    neovim
-    ripgrep
-    wget
-    zsh
-  ];
 
   home-manager = {
     extraSpecialArgs = { inherit inputs; };

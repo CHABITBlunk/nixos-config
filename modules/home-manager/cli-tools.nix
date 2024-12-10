@@ -1,0 +1,43 @@
+{ config, user, pkgs, lib, ... }:
+
+{
+  home.packages = with pkgs; [
+    bat
+    bash-completion
+    bash-language-server
+    black
+    btrfs-progs
+    cmake
+    curl
+    dosfstools
+    dunst
+    eza
+    fcitx5
+    fzf
+    git
+    gnumake
+    iptables
+    lua-language-server
+    lxappearance
+    man
+    neovim
+    netcat-openbsd
+    nettools
+    nodejs_23
+    nmap
+    pulseaudio
+    pylint
+    ripgrep
+    shellcheck
+    shfmt
+    signal-cli
+    unzip
+    wget
+    xclip
+    xdg-user-dirs
+    xdg-utils
+    xfsprogs
+    zip
+    zls
+  ];
+}

@@ -21,4 +21,8 @@
       size = "12";
     };
   }
+  home.programs = with pkgs; [
+    deluge-gtk
+    discord
+  ];
 }
