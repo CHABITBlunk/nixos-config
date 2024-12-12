@@ -9,13 +9,16 @@
     };
   };
 
-  outputs = { self, nixpkgs, ... }@inputs: {
-	nixosConfigurations.shuixing = nixpkgs.lib.nixosSystem {
+  outputs = { self, nixpkgs, home-manager, ... }@inputs: {
+	nixosConfigurations  = {
+		shuixing = nixpkgs.lib.nixosSystem {
+			system = "x86_64-linux";
 			specialArgs = { inherit inputs; };
 			modules = [
 				./hosts/shuixing/configuration.nix
-				inputs.home-manager.nixosModules.default
+				{ home-manager.users.xiaolong = ./hosts/shuixing/home.nix; }
 			];
 		};
 	};
+};
 }
