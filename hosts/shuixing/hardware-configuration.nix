@@ -5,7 +5,9 @@
 
 {
   imports =
-    [ (modulesPath + "/installer/scan/not-detected.nix")
+    [ 
+    (modulesPath + "/installer/scan/not-detected.nix")
+    ../../modules/nixos/nvidia.nix
     ];
 
   boot.initrd.availableKernelModules = [ "nvme" "xhci_pci" "usbhid" ];
@@ -15,11 +17,11 @@
 
   fileSystems = {
     "/" = {
-      device = "/dev/disk/by-uuid/e3e83f1c-d9c3-4a6c-9f82-6a28fd06a899";
+      device = "/dev/disk/by-label/NIXROOT";
       fsType = "btrfs";
     };
     "/boot/efi" = {
-      device = "/dev/disk-by-uuid/9D08-4E2B";
+      device = "/dev/disk-by-label/NIXBOOT";
       fsType = "vfat";
     };
   };
@@ -29,8 +31,8 @@
 # (the default) this is the recommended approach. When using systemd-networkd it's
 # still possible to use this option, but it's recommended to use it in conjunction
 # with explicit per-interface declarations with `networking.interfaces.<interface>.useDHCP`.
-  networking.useDHCP = lib.mkDefault true;
-# networking.interfaces.enp42s0.useDHCP = lib.mkDefault true;
+# networking.useDHCP = lib.mkDefault true;
+  networking.interfaces.enp42s0.useDHCP = lib.mkDefault true;
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
   hardware.cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;

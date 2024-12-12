@@ -3,7 +3,6 @@
 {
   imports = [ 
     ./hardware-configuration.nix
-    ../../modules/nixos/nvidia.nix
     inputs.home-manager.nixosModules.home-manager
   ];
 

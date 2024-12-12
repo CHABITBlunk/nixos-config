@@ -24,4 +24,5 @@
       alias ls="exa"
 
     ''
+  }
 }
