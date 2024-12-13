@@ -10,6 +10,7 @@
       isNormalUser = true;
       initialPassword = "seven sixteen thirty-seven";
       description = "main user";
+      extraGroups = [ "wheel" ];
       shell = pkgs.zsh;
   };
 
@@ -67,6 +68,16 @@
       enable = true;
       packages = [ pkgs.dconf ];
     };
+  };
+
+  fonts = {
+    fontconfig.enable = true;
+    packages = with pkgs; [
+      noto-fonts
+      noto-fonts-cjk
+      noto-fonts-emoji
+      (nerdfonts.override { fonts = [ "Iosevka" "JetBrainsMono" "Ubuntu" ]; })
+    ];
   };
 
   home-manager = {

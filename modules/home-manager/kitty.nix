@@ -1,10 +1,11 @@
+{ pkgs, ... }:
 {
   programs.kitty = {
     enable = true;
     font = {
       name = "Iosevka Nerd Font";
-      package = pkgs.nerdfonts;
-      size = "10";
+      package = (pkgs.nerdfonts.override { fonts = [ "Iosevka" ] });
+      size = 10;
     };
     extraConfig = ''
     cursor_blink_interval 0
@@ -34,6 +35,6 @@
     color15               #e4e4e4
     selection_background  #b2ceee
     selection_foreground  #080808
-    ''
+    '';
   };
 }

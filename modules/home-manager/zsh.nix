@@ -1,4 +1,4 @@
-{ config, lib, pkgs, ... }
+{ config, lib, pkgs, ... }:
 {
   programs.zsh = {
     enable = true;
@@ -23,6 +23,6 @@
       alias vim="nvim"
       alias ls="exa"
 
-    ''
-  }
+    '';
+  };
 }

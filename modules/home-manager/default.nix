@@ -1,0 +1,10 @@
+[
+  ./bottom.nix
+  ./cli-tools.nix
+  ./gh.nix
+  ./git.nix
+  ./kitty.nix
+  ./rofi
+  ./zathura.nix
+  ./zsh.nix
+]

@@ -2,17 +2,19 @@
 
 {
   home.packages = with pkgs; [
+    alejandra
     bat
     bash-completion
     bash-language-server
     black
     btrfs-progs
     cmake
+    cmus
     curl
     dosfstools
     dunst
     eza
-    fcitx5
+    fd
     fzf
     git
     gnumake
@@ -23,8 +25,9 @@
     neovim
     netcat-openbsd
     nettools
-    nodejs_23
+    nixd
     nmap
+    nodejs
     pulseaudio
     pylint
     ripgrep

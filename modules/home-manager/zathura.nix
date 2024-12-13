@@ -43,6 +43,6 @@
       set highlight-color		        "#080808"
       set highlight-fg              "#ae81ff"
       set highlight-active-color	  "#ae81ff"
-    ''
+    '';
   };
 }

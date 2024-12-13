@@ -8,4 +8,5 @@
     sessionVariables = { EDITOR = "nvim"; };
   };
   programs.home-manager.enable = true;
+  imports = (import ../../modules/home-manager);
 }
