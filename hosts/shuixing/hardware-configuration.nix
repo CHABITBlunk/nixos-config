@@ -21,7 +21,7 @@
       fsType = "btrfs";
     };
     "/boot/efi" = {
-      device = "/dev/disk-by-label/NIXBOOT";
+      device = "/dev/disk/by-label/NIXBOOT";
       fsType = "vfat";
     };
   };
