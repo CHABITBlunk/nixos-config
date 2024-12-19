@@ -13,12 +13,20 @@
     curl
     dosfstools
     dunst
+    emmet-ls
     eza
     fd
+    feh
     fzf
+    libgcc
     git
     gnumake
+    go
+    gopls
     iptables
+    jdk23
+    jdt-language-server
+    lua
     lua-language-server
     lxappearance
     man
@@ -28,18 +36,21 @@
     nixd
     nmap
     nodejs
+    pamixer
     pulseaudio
     pylint
     ripgrep
     shellcheck
     shfmt
     signal-cli
+    tmux
     unzip
     wget
     xclip
     xdg-user-dirs
     xdg-utils
     xfsprogs
+    zig
     zip
     zls
   ];

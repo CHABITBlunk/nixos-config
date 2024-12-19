@@ -1,4 +1,4 @@
-(defvar eww "eww -c $HOME/.config/eww/bar") ;; TODO: figure out where eww bar config is located on shuixing
+(defvar eww "eww -c $HOME/.config/eww/bar")
 
 (defwidget workspacesdp []
   (literal :content workspacedp))
@@ -24,7 +24,7 @@
                 :max 101
                 :min 0
                 :onchange "pamixer --set-volume {}"))
-    (button :onclick "pavucontrol &" :class "volume-icon" ""))))
+    (button :onclick "pavucontrol &" :class "volume-icon" "󰕾"))))
 (defpoll current-volume :interval "1s" "pamixer --get-volume")
 (defvar volume false)
 
@@ -47,35 +47,36 @@
   (box  :orientation "v"
         :space-evenly true
         :valign "start"
-        (workspacedp)))
+        (workspacesdp)))
 
 (defwidget tophdmi []
   (box  :orientation "v"
         :space-evenly true
         :valign "start"
-        (workspacehdmi)))
+        (workspaceshdmi)))
 
 (defwidget bottom []
   (box  :orientation "v"
         :space-evenly false
+        :valign "end"
   (volume)
   (time)))
 
-(defwidget bardp
+(defwidget bardp []
   (box  :class "eww_bar"
         :orientation "v"
         :vexpand false
-        :hexpand false)
+        :hexpand false
   (topdp)
-  (end))
+  (bottom)))
 
-(defwidget barhdmi
+(defwidget barhdmi []
   (box  :class "eww_bar"
         :orientation "v"
         :vexpand false
-        :hexpand false)
+        :hexpand false
   (tophdmi)
-  (end))
+  (bottom)))
 
 (defwindow bardp
   :geometry (geometry :height "95%"

@@ -43,10 +43,14 @@
     # enable x11
     xserver = {
       enable = true;
-      displayManager.startx.enable = true;
+      displayManager = {
+        startx.enable = true;
+      };
       windowManager.bspwm.enable = true;
       xkb.layout = "us";
     };
+
+    displayManager.defaultSession = "none+bspwm";
 
     # enable sound
     pipewire = {
@@ -64,19 +68,20 @@
     };
 
     # dbus
-    dbus = {
-      enable = true;
-      packages = [ pkgs.dconf ];
-    };
+    dbus.enable = true;
   };
+
+  programs.dconf.enable = true;
 
   fonts = {
     fontconfig.enable = true;
     packages = with pkgs; [
       noto-fonts
-      noto-fonts-cjk
+      noto-fonts-cjk-sans
       noto-fonts-emoji
-      (nerdfonts.override { fonts = [ "Iosevka" "JetBrainsMono" "Ubuntu" ]; })
+      nerd-fonts.iosevka
+      nerd-fonts.jetbrains-mono
+      nerd-fonts.ubuntu
     ];
   };
 

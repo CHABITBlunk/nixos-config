@@ -39,11 +39,11 @@
 			mark-ovredir-focused = true;
 			wintypes = {
 				tooltip = { fade = true; shadow = false; opacity = 1.0; focus = true; full-shadow = false; };
-				dock = { shadow = true; }
-				dnd = { shadow = true; }
-				popup_menu = { opacity = 1.0; }
-				dropdown_menu = { opacity = 1.0; }
+				dock = { shadow = true; };
+				dnd = { shadow = true; };
+				popup_menu = { opacity = 1.0; };
+				dropdown_menu = { opacity = 1.0; };
 			};
-		}
+		};
 	};
 }

@@ -4,11 +4,12 @@
     enable = true;
     font = {
       name = "Iosevka Nerd Font";
-      package = (pkgs.nerdfonts.override { fonts = [ "Iosevka" ] });
+      package = pkgs.nerd-fonts.iosevka;
       size = 10;
     };
     extraConfig = ''
     cursor_blink_interval 0
+    cursor_shape block
     enable_audio_bell no
     linux_display_server x11
     display_ligatures cursor

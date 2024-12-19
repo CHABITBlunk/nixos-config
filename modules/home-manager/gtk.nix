@@ -1,9 +1,9 @@
-{ config, pkgs, ... }:
+{ config, pkgs, lib, ... }:
 {
   gtk  = {
     enable = true;
     theme = {
-      name = "sweet-dark";
+      name = "Sweet-Dark";
       package = pkgs.sweet;
     };
     iconTheme = {
@@ -11,18 +11,25 @@
       package = pkgs.candy-icons;
     };
     cursorTheme = {
-      name = "Bibata-Ice";
+      name = "Bibata-Modern-Ice";
       package = pkgs.bibata-cursors;
       size = 16;
     };
     font = {
       name = "Ubuntu Nerd Font";
-      package = with pkgs; [ (pkgs.nerdfonts.override { fonts = [ "Ubuntu" ]; }) ];
-      size = "12";
+      package = pkgs.nerd-fonts.ubuntu;
+      size = 12;
     };
-  }
-  home.programs = with pkgs; [
+  };
+  nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
+    "discord"
+  ];
+  home.packages = with pkgs; [
     deluge-gtk
     discord
+    firefox
+    lxappearance
+    pavucontrol
+    signal-desktop
   ];
 }
