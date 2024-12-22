@@ -22,6 +22,7 @@ in {
   };
 
   users = {
+    groups.sftp = {};
     mutableUsers = false;
     users."${user}" = {
       isNormalUser = true;
