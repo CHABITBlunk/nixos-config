@@ -42,7 +42,6 @@
     ripgrep
     shellcheck
     shfmt
-    signal-cli
     tmux
     unzip
     wget
