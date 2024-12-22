@@ -32,7 +32,7 @@ in {
       isNormalUser = false;
       password = password;
       extraGroups = [ "sftp" ];
-    }
+    };
   };
 
   home-manager = {
