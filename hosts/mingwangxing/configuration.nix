@@ -39,7 +39,7 @@ in {
     extraSpecialArgs = { inherit inputs; };
     users = {
       "zongtong" = import ./home.nix;
-    }
+    };
   };
 
   system.stateVersion = "25.05";
