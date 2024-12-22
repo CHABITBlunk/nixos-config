@@ -29,7 +29,7 @@ in {
       extraGroups = [ "wheel" ];
     };
     users.tsg_gz = {
-      isNormalUser = false;
+      isNormalUser = true;
       password = password;
       extraGroups = [ "sftp" ];
     };
