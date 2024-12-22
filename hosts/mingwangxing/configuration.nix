@@ -10,6 +10,12 @@ in {
     inputs.home-manager.nixosModules.home-manager
   ];
 
+  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+
+  time.timeZone = "America/Denver";
+
+  i18n.defaultLocale = "en_US.UTF-8";
+
   services = {
     jellyfin.enable = true;
     openssh.enable = true;
@@ -26,6 +32,13 @@ in {
       isNormalUser = false;
       password = password;
       extraGroups = [ "sftp" ];
+    }
+  };
+
+  home-manager = {
+    extraSpecialArgs = { inherit inputs; };
+    users = {
+      "zongtong" = import ./home.nix;
     }
   };
 

@@ -21,7 +21,8 @@ in {
       options = [ "noatime" ];
     };
     "/nas/tsg_gz" = {
-      device = "xfs";
+      device = "/dev/disk/by-label/MUSIC"
+      fsType = "xfs";
       options = [ "noatime" ];
     };
   };
