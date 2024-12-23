@@ -26,7 +26,7 @@ in {
     users."${user}" = {
       isNormalUser = true;
       password = password;
-      extraGroups = [ "docker" "users" "wheel" ];
+      extraGroups = [ "users" "wheel" ];
     };
     users.tsg_gz = {
       isNormalUser = true;
