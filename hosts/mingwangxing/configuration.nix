@@ -39,6 +39,7 @@ in {
       linger = true;
       password = password;
       extraGroups = [ "users" "jellyfin" ];
+      packages = with pkgs; [ podman ];
     };
   };
 
