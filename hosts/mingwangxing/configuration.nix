@@ -16,10 +16,7 @@ in {
 
   i18n.defaultLocale = "en_US.UTF-8";
 
-  services = {
-    jellyfin.enable = true;
-    openssh.enable = true;
-  };
+  services.openssh.enable = true;
 
   users = {
     groups.sftp = {};
@@ -35,6 +32,8 @@ in {
       extraGroups = [ "sftp" ];
     };
   };
+
+  virtualization.docker.enable = true;
 
   home-manager = {
     extraSpecialArgs = { inherit inputs; };
