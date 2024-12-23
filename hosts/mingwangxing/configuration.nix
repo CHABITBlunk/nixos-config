@@ -32,13 +32,13 @@ in {
     users.sftp = {
       isSystemUser = true;
       password = password;
-      extraGroups = [ "users" "sftp" ];
+      group = "sftp";
     };
     users.jellyfin = {
       isSystemUser = true;
       linger = true;
       password = password;
-      extraGroups = [ "users" "jellyfin" ];
+      group = "jellyfin";
     };
   };
 

@@ -9,7 +9,6 @@
   users.users.xiaolong = {
       isNormalUser = true;
       initialPassword = "seven sixteen thirty-seven";
-      description = "main user";
       extraGroups = [ "wheel" ];
       shell = pkgs.zsh;
   };
