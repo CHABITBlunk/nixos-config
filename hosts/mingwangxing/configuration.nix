@@ -19,17 +19,19 @@ in {
   services.openssh.enable = true;
 
   users = {
-    groups.sftp = {};
+    groups = {
+      sftp = {};
+    };
     mutableUsers = false;
     users."${user}" = {
       isNormalUser = true;
       password = password;
-      extraGroups = [ "wheel" ];
+      extraGroups = [ "docker" "users" "wheel" ];
     };
     users.tsg_gz = {
       isNormalUser = true;
       password = password;
-      extraGroups = [ "sftp" ];
+      extraGroups = [ "users" "sftp" ];
     };
   };
 
