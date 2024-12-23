@@ -20,6 +20,7 @@ in {
 
   users = {
     groups = {
+      jellyfin = {};
       sftp = {};
     };
     mutableUsers = false;
@@ -28,10 +29,16 @@ in {
       password = password;
       extraGroups = [ "users" "wheel" ];
     };
-    users.tsg_gz = {
-      isNormalUser = true;
+    users.sftp = {
+      isSystemUser = true;
       password = password;
       extraGroups = [ "users" "sftp" ];
+    };
+    users.jellyfin = {
+      isSystemUser = true;
+      linger = true;
+      password = password;
+      extraGroups = [ "users" "jellyfin" ];
     };
   };
 
