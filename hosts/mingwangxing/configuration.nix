@@ -33,7 +33,7 @@ in {
     };
   };
 
-  virtualization.docker.enable = true;
+  virtualisation.docker.enable = true;
 
   home-manager = {
     extraSpecialArgs = { inherit inputs; };
