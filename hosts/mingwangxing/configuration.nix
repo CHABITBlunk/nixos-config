@@ -35,10 +35,10 @@ in {
       group = "sftp";
     };
     users.jellyfin = {
-      isSystemUser = true;
+      isNormalUser = true;
       linger = true;
       password = password;
-      group = "jellyfin";
+      extraGroups = [ "users" "jellyfin" ];
     };
   };
 
