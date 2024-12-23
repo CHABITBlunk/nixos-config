@@ -43,8 +43,6 @@ in {
     };
   };
 
-  virtualisation.podman.enable = true;
-
   home-manager = {
     extraSpecialArgs = { inherit inputs; };
     users = {
