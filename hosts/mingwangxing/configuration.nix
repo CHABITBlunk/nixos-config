@@ -42,7 +42,13 @@ in {
     };
   };
 
-  virtualisation.docker.enable = true;
+  virtualisation.docker = {
+    enable = true;
+    rootless = {
+      enable =true;
+      setSocketVariable = true;
+    };
+  };
 
   home-manager = {
     extraSpecialArgs = { inherit inputs; };
