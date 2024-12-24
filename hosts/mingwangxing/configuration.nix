@@ -26,22 +26,23 @@ in {
     mutableUsers = false;
     users."${user}" = {
       isNormalUser = true;
-      password = password;
+      initialPassword = password;
       extraGroups = [ "users" "wheel" ];
     };
     users.sftp = {
       isSystemUser = true;
-      password = password;
+      initialPassword = password;
       group = "sftp";
     };
     users.jellyfin = {
       isNormalUser = true;
       linger = true;
-      password = password;
+      initialPassword = password;
       extraGroups = [ "users" "jellyfin" ];
-      packages = with pkgs; [ podman ];
     };
   };
+
+  virtualisation.docker.enable = true;
 
   home-manager = {
     extraSpecialArgs = { inherit inputs; };

@@ -17,6 +17,5 @@
       xdg-utils
     ];
   };
-  services.podman.enable = true;
   programs.home-manager.enable = true;
 }
