@@ -31,5 +31,6 @@
     lxappearance
     pavucontrol
     signal-desktop
+    vscodium
   ];
 }
