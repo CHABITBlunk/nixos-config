@@ -28,6 +28,7 @@
     };
     initExtra = ''
       set -o vi
+      source $HOME/.config/zsh/gentoo.zsh-theme
     '';
   };
 }

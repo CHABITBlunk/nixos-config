@@ -8,6 +8,8 @@
     bash-language-server
     black
     btrfs-progs
+    clang
+    clang-tools
     cmake
     cmus
     curl
@@ -39,7 +41,16 @@
     pamixer
     pulseaudio
     pylint
+    (pkgs.python3.withPackages (python-pkgs: with python-pkgs; [
+      ipykernel
+      numpy
+      scikit-learn
+      pandas
+      pip
+      matplotlib
+    ]))
     ripgrep
+    scli
     shellcheck
     shfmt
     tmux

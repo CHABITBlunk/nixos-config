@@ -6,11 +6,14 @@
     inputs.home-manager.nixosModules.home-manager
   ];
 
-  users.users.xiaolong = {
+  users = {
+    extraGroups.vboxusers.members = [ "xiaolong" ];
+    users.xiaolong = {
       isNormalUser = true;
       initialPassword = "seven sixteen thirty-seven";
       extraGroups = [ "wheel" ];
       shell = pkgs.zsh;
+    };
   };
 
   # bootloader
@@ -90,6 +93,8 @@
       "xiaolong" = import ./home.nix;
     };
   };
+
+  virtualisation.virtualbox.host.enable = true;
 
   programs.zsh.enable = true;
 
