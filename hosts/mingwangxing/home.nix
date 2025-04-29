@@ -7,6 +7,7 @@
     stateVersion = "24.05";
     sessionVariables = { EDITOR = "vim"; };
     packages = with pkgs; [
+      bash-completion
       curl
       git
       man

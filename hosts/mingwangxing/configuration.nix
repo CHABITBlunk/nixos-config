@@ -16,11 +16,13 @@ in {
 
   i18n.defaultLocale = "en_US.UTF-8";
 
-  services.openssh.enable = true;
+  services = {
+    openssh.enable = true;
+    jellyfin.enable = true;
+  };
 
   users = {
     groups = {
-      jellyfin = {};
       sftp = {};
     };
     mutableUsers = false;
@@ -33,12 +35,6 @@ in {
       isSystemUser = true;
       initialPassword = password;
       group = "sftp";
-    };
-    users.jellyfin = {
-      isNormalUser = true;
-      linger = true;
-      initialPassword = password;
-      extraGroups = [ "users" "jellyfin" ];
     };
   };
 
@@ -56,6 +52,12 @@ in {
       "zongtong" = import ./home.nix;
     };
   };
+
+  environment.systemPackages = with pkgs; [
+    jellyfin
+    jellyfin-web
+    jellyfin-ffmpeg
+  ];
 
   system.stateVersion = "25.05";
 }
