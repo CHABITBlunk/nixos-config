@@ -21,7 +21,7 @@ in {
     jellyfin = {
       enable = true;
       openFirewall = true;
-      user = "zongtong";
+      user = "jellyfin";
     };
   };
 
@@ -39,6 +39,11 @@ in {
       isSystemUser = true;
       initialPassword = password;
       group = "sftp";
+    };
+    users.jellyfin = {
+      isSystemUser = true;
+      initialPassword = password;
+      group = "jellyfin";
     };
   };
 
