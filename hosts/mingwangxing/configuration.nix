@@ -22,7 +22,7 @@ in {
       enable = true;
       openFirewall = true;
       user = "zongtong";
-    }
+    };
   };
 
   users = {
