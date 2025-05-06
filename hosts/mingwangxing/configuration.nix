@@ -28,6 +28,7 @@ in {
   users = {
     groups = {
       sftp = {};
+      jellyfin = {};
     };
     mutableUsers = false;
     users."${user}" = {
@@ -36,7 +37,7 @@ in {
       extraGroups = [ "users" "wheel" ];
     };
     users.sftp = {
-      isSystemUser = true;
+      isNormalUser = true;
       initialPassword = password;
       group = "sftp";
     };
