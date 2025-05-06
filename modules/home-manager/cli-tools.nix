@@ -25,6 +25,7 @@
     gnumake
     go
     gopls
+    gpclient
     iptables
     jdk23
     jdt-language-server
@@ -41,6 +42,7 @@
     pamixer
     pulseaudio
     pylint
+    poetry
     (pkgs.python3.withPackages (python-pkgs: with python-pkgs; [
       ipykernel
       numpy
@@ -48,6 +50,7 @@
       pandas
       pip
       matplotlib
+      torch
     ]))
     ripgrep
     scli
