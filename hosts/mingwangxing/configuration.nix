@@ -21,7 +21,7 @@ in {
     jellyfin = {
       enable = true;
       openFirewall = true;
-      user = "zongtong"
+      user = "zongtong";
     }
   };
 
