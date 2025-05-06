@@ -18,7 +18,11 @@ in {
 
   services = {
     openssh.enable = true;
-    jellyfin.enable = true;
+    jellyfin = {
+      enable = true;
+      openFirewall = true;
+      user = "zongtong"
+    }
   };
 
   users = {
@@ -35,14 +39,6 @@ in {
       isSystemUser = true;
       initialPassword = password;
       group = "sftp";
-    };
-  };
-
-  virtualisation.docker = {
-    enable = true;
-    rootless = {
-      enable = true;
-      setSocketVariable = true;
     };
   };
 
