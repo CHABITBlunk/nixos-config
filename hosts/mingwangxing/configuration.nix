@@ -17,7 +17,12 @@ in {
   i18n.defaultLocale = "en_US.UTF-8";
 
   services = {
-    openssh.enable = true;
+    openssh = {
+      enable = true;
+      extraConfig = ''
+        Subsystem sftp internal-sftp
+      '';
+    };
     jellyfin = {
       enable = true;
       openFirewall = true;
@@ -34,12 +39,14 @@ in {
     users."${user}" = {
       isNormalUser = true;
       initialPassword = password;
-      extraGroups = [ "users" "wheel" ];
+      group = "wheel";
+      extraGroups = [ "users" "jellyfin" ];
     };
     users.sftp = {
       isNormalUser = true;
       initialPassword = password;
       group = "sftp";
+      extraGroups = [ "jellyfin" ];
     };
     users.jellyfin = {
       isSystemUser = true;
