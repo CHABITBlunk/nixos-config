@@ -51,7 +51,6 @@ in {
       isNormalUser = true;
       initialPassword = password;
       group = "wheel";
-      extraGroups = [ "users" "jellyfin" ];
     };
     users.sftp = {
       isNormalUser = true;
