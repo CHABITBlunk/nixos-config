@@ -19,12 +19,12 @@
 				  { home-manager.users.xiaolong = ./hosts/shuixing/home.nix; }
 			  ];
 		  };
-		  mingwangxing = nixpkgs.lib.nixosSystem {
+		  tushuguan = nixpkgs.lib.nixosSystem {
 		    system = "aarch64-linux";
 		    specialArgs = { inherit inputs; };
 		    modules = [ 
-          ./hosts/mingwangxing/configuration.nix
-		      { home-manager.users.zongtong = ./hosts/mingwangxing/home.nix; }
+          ./hosts/tushuguan/configuration.nix
+		      { home-manager.users.zongtong = ./hosts/tushuguan/home.nix; }
 		    ];
 		  };
 	  };
