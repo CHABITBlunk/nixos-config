@@ -20,11 +20,11 @@
 			  ];
 		  };
 		  tushuguan = nixpkgs.lib.nixosSystem {
-		    system = "aarch64-linux";
+		    system = "x86_64-linux";
 		    specialArgs = { inherit inputs; };
 		    modules = [ 
           ./hosts/tushuguan/configuration.nix
-		      { home-manager.users.zongtong = ./hosts/tushuguan/home.nix; }
+		      { home-manager.users.guanzhang = ./hosts/tushuguan/home.nix; }
 		    ];
 		  };
 	  };
