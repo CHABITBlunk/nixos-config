@@ -15,6 +15,10 @@ in {
   };
 
   fileSystems = {
+    "/boot/efi" = {
+      device = "/dev/disk/by-label/NIXBOOT";
+      fsType = "vfat";
+    };
     "/" = {
       device = "/dev/disk/by-label/NIXROOT";
       fsType = "btrfs";

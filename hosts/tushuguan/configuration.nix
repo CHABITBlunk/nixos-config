@@ -16,6 +16,17 @@ in {
 
   i18n.defaultLocale = "en_US.UTF-8";
 
+  boot.loader = {
+    efi = {
+      canTouchEfiVariables = true;
+      efiSysMountPoint = "/boot/efi";
+    };
+    grub = {
+      efiSupport = true;
+      device = "nodev";
+    };
+  };
+
   services = {
     openssh = {
       enable = true;
@@ -27,9 +38,6 @@ in {
       enable = true;
       openFirewall = true;
       user = "jellyfin";
-    };
-    unison = {
-      enable = true;
     };
   };
 
@@ -69,6 +77,7 @@ in {
     jellyfin
     jellyfin-web
     jellyfin-ffmpeg
+    unison
   ];
 
   system.stateVersion = "25.05";
