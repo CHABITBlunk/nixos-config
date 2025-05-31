@@ -60,8 +60,7 @@ in {
       extraGroups = [ "jellyfin" ];
     };
     users.jellyfin = {
-      isSystemUser = false;
-      isNormalUser = true;
+      isSystemUser = true;
       initialPassword = password;
       group = "jellyfin";
     };
