@@ -16,20 +16,6 @@
     };
   };
 
-  # bootloader
-  boot.loader = {
-    efi = {
-      canTouchEfiVariables = true;
-      efiSysMountPoint = "/boot/efi";
-    };
-    grub = {
-      efiSupport = true;
-      device = "nodev";
-      enable = true;
-      useOSProber = true;
-    };
-  };
-
   # set locale
   i18n.defaultLocale = "en_US.UTF-8";
 

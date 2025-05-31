@@ -7,10 +7,26 @@
     ../../modules/nixos/nvidia.nix
     ];
 
-  boot.initrd.availableKernelModules = [ "nvme" "xhci_pci" "usbhid" ];
-  boot.initrd.kernelModules = [ ];
-  boot.kernelModules = [ ];
-  boot.extraModulePackages = [ ];
+  boot = {
+    initrd = {
+      availableKernelModules = [ "nvme" "xhci_pci" "usbhid" ];
+      kernelModules = [ ];
+    };
+    kernelModules = [ ];
+    loader = {
+      efi = {
+        canTouchEfiVariables = true;
+        efiSysMountPoint = "/boot/efi";
+      };
+      grub = {
+        efiSupport = true;
+        device = "nodev";
+        enable = true;
+        useOSProber = true;
+      };
+    };
+    extraModulePackages = [ ];
+  };
 
   fileSystems = {
     "/" = {

@@ -6,11 +6,22 @@ in {
   imports = [ (modulesPath + "/installer/scan/not-detected.nix") ];
 
   boot = {
-    kernelPackages = pkgs.linuxKernel.packages.linux_rpi4;
-    initrd.availableKernelModules = [ "xhci_pci" "usbhid" "usb_storage" ];
+    initrd = {
+      availableKernelModules = [ "xhci_pci" "usbhid" "nvme" ];
+      kernelModules = [ ];
+    };
+    kernelModules = [ ];
     loader = {
-      grub.enable = false;
-      generic-extlinux-compatible.enable = true;
+      efi = {
+        canTouchEfiVariables = true;
+        efiSysMountPoint = "/boot/efi";
+      };
+      grub = {
+        efiSupport = true;
+        device = "nodev";
+        enable = true;
+        useOSProber = true;
+      };
     };
   };
 
@@ -32,5 +43,7 @@ in {
     wireless.enable = false;
   };
 
-  hardware.enableRedistributableFirmware = true;
+  networking.interfaces.enp4s0f4u1c2.useDHCP = lib.mkDefault true;
+  nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
+  hardware.cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
 }
