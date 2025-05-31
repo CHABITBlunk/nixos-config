@@ -51,7 +51,7 @@ in {
       isNormalUser = true;
       initialPassword = password;
       group = "wheel";
-      additionalGroups = [ "users" ];
+      extraGroups = [ "users" ];
     };
     users.sftp = {
       isNormalUser = true;
