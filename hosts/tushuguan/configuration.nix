@@ -1,7 +1,7 @@
 { config, pkgs, inputs, lib, ...}:
 
 let
-  user = "zongtong";
+  user = "guanzhang";
   password = "seven sixteen thirty-seven";
 in {
 
@@ -27,6 +27,9 @@ in {
       enable = true;
       openFirewall = true;
       user = "jellyfin";
+    };
+    unison = {
+      enable = true;
     };
   };
 

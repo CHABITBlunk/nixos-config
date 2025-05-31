@@ -1,7 +1,7 @@
 { config, lib, pkgs, modulesPath, ... }:
 
 let
-  hostname = "mingwangxing";
+  hostname = "tushuguan";
 in {
   imports = [ (modulesPath + "/installer/scan/not-detected.nix") ];
 
@@ -16,13 +16,8 @@ in {
 
   fileSystems = {
     "/" = {
-      device = "/dev/disk/by-label/NIXOS_SD";
-      fsType = "ext4";
-      options = [ "noatime" ];
-    };
-    "/nas/tsg_gz" = {
-      device = "/dev/disk/by-label/MUSIC";
-      fsType = "xfs";
+      device = "/dev/disk/by-label/NIXROOT";
+      fsType = "btrfs";
       options = [ "noatime" ];
     };
   };
