@@ -2,8 +2,8 @@
 
 {
   home = {
-    username = "zongtong";
-    homeDirectory = "/home/zongtong";
+    username = "guanzhang";
+    homeDirectory = "/home/guanzhang";
     stateVersion = "24.05";
     sessionVariables = { EDITOR = "vim"; };
     packages = with pkgs; [
